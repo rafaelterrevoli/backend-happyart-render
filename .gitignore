@@ -1,0 +1,38 @@
+# Dependency directories
+node_modules/
+jspm_packages/
+
+
+# dotenv environment variable files
+.env
+
+
+#################### VisualStudioCode.gitignore ####################
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+
+#################### macOS.gitignore ####################
+
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+
+#################### Custom.gitignore ####################
+
+# add your custom gitignore here:
+!.gitignore
+!.gitsubmodules
