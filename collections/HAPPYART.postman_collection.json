@@ -1,0 +1,211 @@
+{
+	"info": {
+		"_postman_id": "275183c1-a672-42e4-bad0-50e6430c5a55",
+		"name": "HAPPYART",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Registrar-Usurio",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n    \"firstname\": \"Masako\",\n    \"lastname\": \"Kimura\",\n    \"email\": \"admin4@happyart.com\",\n    \"password\": \"password_12345\",\n    \"phone\": \"+56986351811\",\n    \"addresses\": [\n      {\n        \"tipo\": \"casa\",\n        \"direccion\": \"123 Calle Principal, Santiago\"\n      },\n      {\n        \"tipo\": \"trabajo\",\n        \"direccion\": \"456 Avenida Secundaria, Santiago\"\n      }\n    ]\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/happyart/api/v1/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"happyart",
+						"api",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"admin4@happyart.com\",\n    \"password\": \"password_12345\"\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/happyart/api/v1/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"happyart",
+						"api",
+						"v1",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener-Usuario",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzMsImVtYWlsIjoiYWRtaW40QGhhcHB5YXJ0LmNvbSIsInJvbGUiOiJjbGllbnQiLCJpYXQiOjE3MzE3OTAyMDMsImV4cCI6MTczMTgxMTgwM30.CSs4hhE8JozMjEbZEomxlrzUj4WYIFAR6QV_NNReZ8w",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/happyart/api/v1/users/33",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"happyart",
+						"api",
+						"v1",
+						"users",
+						"33"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registrar-Producto",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjgsImVtYWlsIjoiYWRtaW5AaGFwcHlhcnQuY29tIiwicm9sZSI6ImNsaWVudCIsImlhdCI6MTczMTc4NjAzNSwiZXhwIjoxNzMxODA3NjM1fQ.Gwc8tWdJZx2SrshuJFj16mZYXqLTGCRKzWZg7agwLBk",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"Llaveros con notas adhesivas de Pikachu\",\n    \"price\": \"4490\",\n    \"stock\": 50,\n    \"other_attributes\": {\n        \"gr\": 300\n    },\n    \"img\": \"https://www.ecartelera.com/carteles-series/300/380/001_p.jpg\",\n    \"type_id\": 24,\n    \"theme_id\": 6\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/happyart/api/v1/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"happyart",
+						"api",
+						"v1",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener-Productos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/happyart/api/v1/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"happyart",
+						"api",
+						"v1",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener-Productos-Cantidad",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/happyart/api/v1/products?size=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"happyart",
+						"api",
+						"v1",
+						"products"
+					],
+					"query": [
+						{
+							"key": "size",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener-Producto",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/happyart/api/v1/products/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"happyart",
+						"api",
+						"v1",
+						"products",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
