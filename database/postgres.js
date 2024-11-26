@@ -11,10 +11,10 @@ dotenv.config();
     port: process.env.DB_PORT
   });
 */
+
   const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
-    //ssl: true
+  //  ssl: true
   });
-
 
 module.exports = pool;

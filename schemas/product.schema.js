@@ -19,6 +19,16 @@ const schemaProductCreate = Joi.object({
   theme_id: theme_id.required(),
 });
 
+const schemaProductUpdate = Joi.object({
+  description: description.required(),
+  price: price.required(),
+  stock: stock.required(),
+  other_attributes: other_attributes.required(),
+  img: img.required(),
+  type_id: type_id.required(),
+  theme_id: theme_id.required(),
+});
+
 const schemaProductId = Joi.object({
   id: id.required()
 });
@@ -27,9 +37,9 @@ const schemaProducsByType = Joi.object({
   id: id.required()
 });
 
-
 module.exports = {
   schemaProductCreate,
   schemaProductId,
-  schemaProducsByType
+  schemaProducsByType,
+  schemaProductUpdate
 };

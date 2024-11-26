@@ -139,6 +139,7 @@ const createNewProduct = async (req, res) => {
       img,
       type_id,
       theme_id,
+      id,
     ];
     const response = await pool.query(query, values);
     res.status(201).json(response.rows[0]);
@@ -148,24 +149,63 @@ const createNewProduct = async (req, res) => {
   }
 };
 
-const getProductTypes = async (req, res) => {
+const updateProduct = async (req, res) => {
   try {
-    let query = "SELECT * FROM type;";
-    const response = await pool.query(query);
-    if (!response) {
+    const { id } = req.params;
+    const token = req.headers.authorization;
+    const { role } = jwt.verify(token, SECRET_KEY);
+    if (role == "client") {
+      return res.status(401).json({
+        message: "No autorizado, token no pertenece a un usuario administrador",
+        code: 401,
+      });
+    }
+    const {
+      description,
+      price,
+      stock,
+      other_attributes,
+      img,
+      type_id,
+      theme_id,
+    } = req.body;
+    const query = `UPDATE products
+    SET 
+        description = $1,
+        price = $2,
+        stock = $3,
+        other_attributes = $4,
+        img = $5,
+        type_id = $6,
+        theme_id = $7
+    WHERE 
+        id = $8 RETURNING *;`;
+    const values = [
+      description,
+      price,
+      stock,
+      JSON.stringify(other_attributes),
+      img,
+      type_id,
+      theme_id,
+      id,
+    ];
+    const { rows } = await pool.query(query, values);
+
+    if (rows.length === 0) {
       return res.status(404).json({
-        message: "No hay productos de este tipo",
-        code: 404,
+        message: "Producto no encontrado",
       });
     }
-    res.status(200).json(response.rows);
+    res.status(200).json({
+      message: "Producto actualizado exitosamente",
+      product: rows[0],
+    });
+  
   } catch (error) {
-    {
-      console.log(error);
-      res.status(500).json({
-        message: "Ocurrió un error al obtener los tipos de productos",
-      });
-    }
+    console.log(error);
+    res.status(500)
+      .json({ message: "Ocurrió un error al actualizar el producto" });
   }
 };
 
@@ -174,5 +214,5 @@ module.exports = {
   getAllProducts,
   createNewProduct,
   getProductsByType,
-  getProductTypes,
+  updateProduct,
 };

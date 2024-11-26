@@ -6,6 +6,7 @@ const {
   schemaProductCreate,
   schemaProductId,
   schemaProducsByType,
+  schemaProductUpdate
 } = require("../schemas/product.schema");
 
 const router = express.Router();
@@ -41,10 +42,7 @@ router.get(
   "/byType/:id",
   validatorHandler(schemaProducsByType, "params"),
   async (req, res) => {
-    const getProductsByType = await productsServices.getProductsByType(
-      req,
-      res
-    );
+    const getProductsByType = await productsServices.getProductsByType(req, res);
     return getProductsByType;
   }
 );
@@ -56,6 +54,17 @@ router.post(
   async (req, res) => {
     const createNewProduct = await productsServices.createNewProduct(req, res);
     return createNewProduct;
+  }
+);
+
+router.put(
+  "/:id",
+  validateJWT,
+  validatorHandler(schemaProductId, "params"),
+  validatorHandler(schemaProductUpdate, "body"),
+  async (req, res) => {
+    const updateProduct = await productsServices.updateProduct(req, res);
+    return updateProduct;
   }
 );
 

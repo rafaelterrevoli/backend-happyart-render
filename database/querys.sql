@@ -93,17 +93,17 @@ DELETE FROM users where userId = 3;
 
 UPDATE type
 SET name = CASE
-    WHEN name = 'Diary' THEN 'Agendas'
-    WHEN name = 'Notebook' THEN 'Cuadernos'
-    WHEN name = 'Drawing Notebook' THEN 'Cuadernos de Dibujo'
-    WHEN name = 'Keychain Sticky Notes' THEN 'Llaveros con Notas Adhesivas'
-    WHEN name = 'Bookmarks Set' THEN 'Set de Marcapáginas'
-    WHEN name = 'Stickers Set' THEN 'Set de Stickers'
-    WHEN name = 'Wall Calendar' THEN 'Calendarios de Pared'
-    WHEN name = 'Magnet Calendar' THEN 'Calendarios Magnéticos'
-    WHEN name = 'Magnetic Fridge' THEN 'Imánes para el Refri'
-    WHEN name = 'Painting' THEN 'Pinturas'
-    WHEN name = 'Resined Painting' THEN 'Pinturas Resinadas'
+    WHEN name = 'Agendas' THEN 'Agenda'
+    WHEN name = 'Cuadernos' THEN 'Cuaderno'
+    WHEN name = 'Cuadernos de Dibujo' THEN 'Cuaderno de Dibujo'
+    WHEN name = 'Llaveros con Notas Adhesivas' THEN 'Llavero con Notas Adhesivas'
+    WHEN name = 'Set de Marcapáginas' THEN 'Set de Marcapáginas'
+    WHEN name = 'Set de Stickers' THEN 'Set de Stickers'
+    WHEN name = 'Calendarios de Pared' THEN 'Calendario de Pared'
+    WHEN name = 'Calendarios Magnéticos' THEN 'Calendario Magnéticos'
+    WHEN name = 'Imánes para el Refri' THEN 'Imán para el Refri'
+    WHEN name = 'Pinturas' THEN 'Pintura'
+    WHEN name = 'Pinturas Resinadas' THEN 'Pintura Resinada'
     WHEN name = 'HappyArt Box' THEN 'HappyArt Box'
     ELSE name -- Mantiene los valores que no coincidan
 END;
