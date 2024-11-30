@@ -4,6 +4,8 @@ const { errorlogs, errorHandler } = require("./middleware/error.handler");
 const cors = require("cors");
 const morgan = require("morgan");
 const app = express();
+const dotenv = require("dotenv");
+dotenv.config();
 const port = process.env.PORT || 3000;
 
 app.use(cors());
@@ -20,7 +22,7 @@ app.use(errorlogs);
 
 app.listen(port, (req, res) => {
   console.log(`Server is running on port ${port}`);
-  console.log("http://localhost:3000");
+  console.log(`http://localhost:${port}`);
 });
 
 module.exports = app;
