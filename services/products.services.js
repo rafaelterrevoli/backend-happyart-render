@@ -138,8 +138,7 @@ const createNewProduct = async (req, res) => {
       JSON.stringify(other_attributes),
       img,
       type_id,
-      theme_id,
-      id,
+      theme_id
     ];
     const response = await pool.query(query, values);
     res.status(201).json(response.rows[0]);
