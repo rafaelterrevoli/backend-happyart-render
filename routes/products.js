@@ -20,15 +20,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/pTypes", async (req, res) => {
-  try {
-    const productsTypes = await productsServices.getProductTypes(req, res);
-    return productsTypes;
-  } catch (error) {
-    next(error);
-  }
-});
-
 router.get(
   "/:id",
   validatorHandler(schemaProductId, "params"),
