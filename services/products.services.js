@@ -136,7 +136,7 @@ const createNewProduct = async (req, res) => {
       price,
       stock,
       JSON.stringify(other_attributes),
-      img,
+      JSON.stringify(img),
       type_id,
       theme_id
     ];
@@ -184,7 +184,7 @@ const updateProduct = async (req, res) => {
       price,
       stock,
       JSON.stringify(other_attributes),
-      img,
+      JSON.stringify(img),
       type_id,
       theme_id,
       id,

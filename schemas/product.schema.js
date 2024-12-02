@@ -5,7 +5,7 @@ const description = Joi.string().min(3).max(250);
 const price = Joi.number().integer().min(2);
 const stock = Joi.number().integer().min(0);
 const other_attributes = Joi.object().min(1);
-const img = Joi.string().min(3).max(250);
+const img = Joi.array().items(Joi.string()).min(1);
 const type_id = Joi.number().integer().min(1);
 const theme_id = Joi.number().integer().min(1);
 
