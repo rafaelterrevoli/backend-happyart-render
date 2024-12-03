@@ -50,7 +50,7 @@ CREATE TABLE products (
     other_attributes JSONB NOT NULL DEFAULT '{}',
     type_id INT REFERENCES type(id),
     theme_id INT REFERENCES theme(id),
-    img TEXT NOT NULL DEFAULT 'Sin imagen'
+    img JSONB NOT NULL DEFAULT '[]';
 );
 
 

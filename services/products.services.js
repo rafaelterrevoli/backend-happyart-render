@@ -14,6 +14,8 @@ const getOneProduct = async (req, res) => {
     p.price,
     p.stock,
     p.other_attributes,
+    p.type_id,
+    p.theme_id,
     p.img,
     t.name AS type_name,
     th.name AS theme_name
@@ -46,6 +48,8 @@ const getProductsByType = async (req, res) => {
     p.price,
     p.stock,
     p.other_attributes,
+    p.type_id,
+    p.theme_id,
     p.img,
     t.name AS type_name,
     th.name AS theme_name
@@ -82,6 +86,8 @@ const getAllProducts = async (req, res) => {
     p.price,
     p.stock,
     p.other_attributes,
+    p.type_id,
+    p.theme_id,
     p.img,
     t.name AS type_name,
     th.name AS theme_name
@@ -200,10 +206,10 @@ const updateProduct = async (req, res) => {
       message: "Producto actualizado exitosamente",
       product: rows[0],
     });
-  
   } catch (error) {
     console.log(error);
-    res.status(500)
+    res
+      .status(500)
       .json({ message: "Ocurrió un error al actualizar el producto" });
   }
 };
